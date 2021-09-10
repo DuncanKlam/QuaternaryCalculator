@@ -1,9 +1,4 @@
 public class Calculator {
-    public static void main(String[] args) {
-        String first = "102";
-        String second = "3";
-        System.out.println(add(first, second));
-    }
     public static String add(String quaternary1, String quaternary2) {
         int first = Integer.parseInt(quaternary1, 4);
         int second = Integer.parseInt(quaternary2, 4);
