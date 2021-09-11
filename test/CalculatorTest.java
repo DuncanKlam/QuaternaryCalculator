@@ -9,7 +9,10 @@ public class CalculatorTest {
     }
 
     @Test
-    void testAdd() {
+    void testAddLargeNums() {
+        String expected = "13333332";
+        String largeNum = "3333333";
+        Assertions.assertEquals(expected, Calculator.add(largeNum, largeNum));
     }
 
     @Test
