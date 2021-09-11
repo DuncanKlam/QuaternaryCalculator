@@ -35,8 +35,22 @@ public class CalculatorTest {
     }
 
     @Test
-    void mul() {
+    void testMulZeros() {
+        String expected = "0";
+        Assertions.assertEquals(expected,Calculator.mul("0", "0"));
+    }
 
+    @Test
+    void testMulVariousNums() {
+        String[] expected = {"1", "20", "3120", "2002131121"};
+
+        String[] actual = new String[4];
+        actual[0] = Calculator.mul("1", "1");
+        actual[1] = Calculator.mul("10", "2");
+        actual[2] = Calculator.mul("123", "20");
+        actual[3] = Calculator.mul("23123", "23123");
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
