@@ -2,6 +2,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CalculatorTest {
+
+    private final String LARGEST_INPUT = "3333333";
+
     @Test
     public void testAddZeros() {
         String expected = "0";
@@ -26,8 +29,7 @@ public class CalculatorTest {
     @Test
     void testAddLargeNums() {
         String expected = "13333332";
-        String largeNum = "3333333";
-        Assertions.assertEquals(expected, Calculator.add(largeNum, largeNum));
+        Assertions.assertEquals(expected, Calculator.add(LARGEST_INPUT, LARGEST_INPUT));
     }
 
     @Test
@@ -54,6 +56,12 @@ public class CalculatorTest {
     }
 
     @Test
+    void testMulLargeNums() {
+        String expected = "33333320000001";
+        Assertions.assertEquals(expected, Calculator.mul(LARGEST_INPUT, LARGEST_INPUT));
+    }
+
+    @Test
     void div() {
     }
 
@@ -62,6 +70,25 @@ public class CalculatorTest {
     }
 
     @Test
-    void square() {
+    void testSquareZero() {
+        String expected = "0";
+        Assertions.assertEquals(expected, Calculator.square("0"));
+    }
+
+    @Test
+    void testSquareVariousNums() {
+        String[] expected = {"1", "10", "23121", "3101112010"};
+        String[] actual = new String[4];
+        actual[0] = Calculator.square("1");
+        actual[1] = Calculator.square("2");
+        actual[2] = Calculator.square("123");
+        actual[3] = Calculator.square("32132");
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void testSquareLargestInput() {
+        String expected = "33333320000001";
+        Assertions.assertEquals(expected, Calculator.square(LARGEST_INPUT));
     }
 }
