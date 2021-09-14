@@ -299,9 +299,4 @@ public class CalculatorUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
-
-    public static void main(String[] args) {
-        new CalculatorUI();
-        System.out.println("Hello World!");
-    }
 }
