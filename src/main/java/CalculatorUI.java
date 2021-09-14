@@ -113,9 +113,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 button1.setBackground(new Color(210,225,240));
             }
         });
-        button1.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"1");
-        });
+        button1.addActionListener(e -> displayLabel.setText(displayLabel.getText()+"1"));
         panel.add(button1, button1constraints);
 
         //Make 2 Button
@@ -134,9 +132,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 button2.setBackground(new Color(210,225,240));
             }
         });
-        button2.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"2");
-        });
+        button2.addActionListener(e -> displayLabel.setText(displayLabel.getText()+"2"));
         panel.add(button2, button2constraints);
 
         //Make 3 button
@@ -155,9 +151,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 button3.setBackground(new Color(210,225,240));
             }
         });
-        button3.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"3");
-        });
+        button3.addActionListener(e -> displayLabel.setText(displayLabel.getText()+"3"));
         panel.add(button3, button3constraints);
 
         //Make Addition button
@@ -176,9 +170,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 buttonAdd.setBackground(new Color(160,160,200));
             }
         });
-        buttonAdd.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"+");
-        });
+        buttonAdd.addActionListener(e -> displayLabel.setText(displayLabel.getText()+"+"));
         panel.add(buttonAdd, buttonAddconstraints);
 
         //Make subtraction button
@@ -197,9 +189,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 buttonSub.setBackground(new Color(160,160,200));
             }
         });
-        buttonSub.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"-");
-        });
+        buttonSub.addActionListener(e -> displayLabel.setText(displayLabel.getText()+"-"));
         panel.add(buttonSub, buttonSubconstraints);
 
         //Make Multiplication button
@@ -218,9 +208,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 buttonMult.setBackground(new Color(160,160,200));
             }
         });
-        buttonMult.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"x");
-        });
+        buttonMult.addActionListener(e -> displayLabel.setText(displayLabel.getText()+"x"));
         panel.add(buttonMult, buttonMultconstraints);
 
         //Make division button
@@ -239,9 +227,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 buttonDiv.setBackground(new Color(160,160,200));
             }
         });
-        buttonDiv.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"/");
-        });
+        buttonDiv.addActionListener(e -> displayLabel.setText(displayLabel.getText()+"/"));
         panel.add(buttonDiv, buttonDivconstraints);
 
         //Make equal button
@@ -260,9 +246,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 buttonEqual.setBackground(new Color(90,250,90));
             }
         });
-        buttonEqual.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"=");
-        });
+        buttonEqual.addActionListener(e -> displayLabel.setText(displayLabel.getText()+"="));
         panel.add(buttonEqual, buttonEqualconstraints);
 
         //Make clear button
@@ -281,9 +265,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
                 buttonClear.setBackground(new Color(255,90,90));
             }
         });
-        buttonClear.addActionListener(e -> {
-            displayLabel.setText(" ");
-        });
+        buttonClear.addActionListener(e -> displayLabel.setText(" "));
         panel.add(buttonClear, buttonClearconstraints);
         //Voila now you can type binary numbers
 
