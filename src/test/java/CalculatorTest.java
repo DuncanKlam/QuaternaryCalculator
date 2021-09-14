@@ -5,6 +5,26 @@ public class CalculatorTest {
     private final String LARGEST_INPUT = "3333333";
 
     @Test
+    public void testComputeAdd() {
+        Assertions.assertEquals("2", Calculator.compute("1", "1", "+"));
+    }
+
+    @Test
+    public void testComputeSub() {
+        Assertions.assertEquals("2", Calculator.compute("10", "2", "-"));
+    }
+
+    @Test
+    public void testComputeMul() {
+        Assertions.assertEquals("20", Calculator.compute("10", "2", "x"));
+    }
+
+    @Test
+    public void testComputeDiv() {
+        Assertions.assertEquals("2", Calculator.compute("10", "2", "/"));
+    }
+
+    @Test
     public void testAddZeros() {
         String expected = "0";
         Assertions.assertEquals(expected, Calculator.add("0","0"));

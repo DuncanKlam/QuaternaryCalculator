@@ -1,4 +1,16 @@
 public class Calculator {
+
+    public static String compute(String a, String b, String operator) {
+
+        return switch (operator) {
+            case "+" -> add(a, b);
+            case "-" -> sub(a, b);
+            case "x" -> mul(a, b);
+            case "/" -> div(a, b);
+            default -> "error";
+        };
+    }
+
     public static String add(String quaternary1, String quaternary2) {
         int first = Integer.parseInt(quaternary1, 4);
         int second = Integer.parseInt(quaternary2, 4);
