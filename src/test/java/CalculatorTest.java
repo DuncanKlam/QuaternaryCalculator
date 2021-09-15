@@ -137,4 +137,16 @@ public class CalculatorTest {
         String expected = "2";
         Assertions.assertEquals(expected, Calculator.calculate("1+1"));
     }
+
+    @Test
+    void testCalculateEmptyCalculationValueRight(){
+        String expected = "2";
+        Assertions.assertEquals(expected, Calculator.calculate("2+"));
+    }
+
+    @Test
+    void testCalculateEmptyCalculationValueLeft(){
+        String expected = "2";
+        Assertions.assertEquals(expected, Calculator.calculate("+2"));
+    }
 }

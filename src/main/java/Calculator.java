@@ -12,9 +12,18 @@ public class Calculator {
     }
 
     public static String calculate(String calculation){
+        String num = "";
+        String result = "";
         String operator = parseCalculation(calculation);
-        String[] parts = calculation.split("["+operator+"]");
-        return compute(parts[0],parts[1],operator);
+        String[] parts = calculation.split("[" + operator + "]");
+        try { if (parts[0] == ""){
+            num = "0";
+        } else { num = parts[0];}
+            result = compute(num, parts[1], operator);
+        } catch (ArrayIndexOutOfBoundsException e){
+            result = compute(parts[0], "0" , operator);
+        }
+        return result;
     }
 
     public static String compute(String a, String b, String operator) {
