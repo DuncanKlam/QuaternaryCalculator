@@ -1,7 +1,8 @@
+
 public class Calculator {
 
     public static String parseCalculation(String calculation){
-        String[] operators = {"+","-","x","/"};
+        String[] operators = {"+","-","x","/","^SQRT","^2"};
         String operator = "";
         for (String op : operators){
             if (calculation.contains(op)){
@@ -33,6 +34,8 @@ public class Calculator {
             case "-" -> sub(a, b);
             case "x" -> mul(a, b);
             case "/" -> div(a, b);
+            case "^SQRT" -> root(a);
+            case "^2" -> square(a);
             default -> "error";
         };
     }

@@ -13,6 +13,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
 
     JLabel displayLabel;
     Boolean operatorPressed = false;
+    Boolean sqrtPressed = false;
 
     public CalculatorUI() {
         //Sets JFrame Title
@@ -257,9 +258,58 @@ public class CalculatorUI extends JFrame implements ActionListener {
         });
         panel.add(buttonDiv, buttonDivconstraints);
 
+        //Make square root button
+        JButton buttonSquareRT = new JButton("^SQRT");
+        var buttonSquareRTconstraints = new GridBagConstraints(3, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
+        buttonSquareRT.setBorder(BorderFactory.createRaisedBevelBorder());
+        buttonSquareRT.setBackground(new Color(160,160,200));
+        buttonSquareRT.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
+        buttonSquareRT.addMouseListener(new MouseAdapter(){
+            public void mouseEntered(MouseEvent M){
+                buttonSquareRT.setBackground(new Color(150,150,190));
+            }
+        });
+        buttonSquareRT.addMouseListener(new MouseAdapter(){
+            public void mouseExited(MouseEvent M){
+                buttonSquareRT.setBackground(new Color(160,160,200));
+            }
+        });
+        buttonSquareRT.addActionListener(e -> {
+            if (operatorPressed == false){
+                displayLabel.setText(displayLabel.getText()+"^SQRT");
+                operatorPressed = true;
+            }
+        });
+        panel.add(buttonSquareRT, buttonSquareRTconstraints);
+
+        //Make square button
+        JButton buttonSquare = new JButton("^2");
+        var buttonSquareconstraints = new GridBagConstraints(4, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
+        buttonSquare.setBorder(BorderFactory.createRaisedBevelBorder());
+        buttonSquare.setBackground(new Color(160,160,200));
+        buttonSquare.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
+        buttonSquare.addMouseListener(new MouseAdapter(){
+            public void mouseEntered(MouseEvent M){
+                buttonSquare.setBackground(new Color(150,150,190));
+            }
+        });
+        buttonSquare.addMouseListener(new MouseAdapter(){
+            public void mouseExited(MouseEvent M){
+                buttonSquare.setBackground(new Color(160,160,200));
+            }
+        });
+        buttonSquare.addActionListener(e -> {
+            if (operatorPressed == false){
+                displayLabel.setText(displayLabel.getText()+"^2");
+                operatorPressed = true;
+            }
+        });
+        panel.add(buttonSquare, buttonSquareconstraints);
+
+
         //Make equal button
         JButton buttonEqual = new JButton("=");
-        var buttonEqualconstraints = new GridBagConstraints(1, 3, 2, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
+        var buttonEqualconstraints = new GridBagConstraints(1, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonEqual.setBorder(BorderFactory.createRaisedBevelBorder());
         buttonEqual.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
         buttonEqual.setBackground(new Color(90,250,90));
@@ -281,7 +331,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
 
         //Make clear button
         JButton buttonClear = new JButton("Clear");
-        var buttonClearconstraints = new GridBagConstraints(3, 3, 2, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
+        var buttonClearconstraints = new GridBagConstraints(2, 3,1 , 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonClear.setBorder(BorderFactory.createRaisedBevelBorder());
         buttonClear.setFont((new Font("Sans-Serif", Font.BOLD, 20)));
         buttonClear.setBackground(new Color(255,90,90));
@@ -300,6 +350,30 @@ public class CalculatorUI extends JFrame implements ActionListener {
             operatorPressed = false;
         });
         panel.add(buttonClear, buttonClearconstraints);
+
+        //Make Toggle button
+        JButton buttonToggle = new JButton("Toggle Base");
+        var buttonToggleconstraints = new GridBagConstraints(1, 5, 4, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
+        buttonToggle.setBorder(BorderFactory.createRaisedBevelBorder());
+        buttonToggle.setBackground(new Color(255,255,0));
+        buttonToggle.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
+        buttonToggle.addMouseListener(new MouseAdapter(){
+            public void mouseEntered(MouseEvent M){
+                buttonToggle.setBackground(new Color(150,150,190));
+            }
+        });
+        buttonToggle.addMouseListener(new MouseAdapter(){
+            public void mouseExited(MouseEvent M){
+                buttonToggle.setBackground(new Color(255,255,0));
+            }
+        });
+        buttonToggle.addActionListener(e -> {
+            if (operatorPressed == false){
+                displayLabel.setText(displayLabel.getText()+"Toggle Base");
+                operatorPressed = true;
+            }
+        });
+        panel.add(buttonToggle, buttonToggleconstraints);
 
         //Closing thoughts, final window creation
         setPreferredSize(new Dimension(400, 600));
