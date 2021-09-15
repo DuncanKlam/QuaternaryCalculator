@@ -1,7 +1,4 @@
 import javax.swing.*;
-import javax.swing.event.MouseInputAdapter;
-import javax.swing.plaf.basic.BasicTabbedPaneUI.MouseHandler;
-
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -29,7 +26,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
         setContentPane(panel);
 
         //Make display window for calculator
-        displayLabel = new JLabel("");
+        displayLabel = new JLabel(" ");
         var displayLabelConstraints = new GridBagConstraints(1, 0, 4, 1, 1, .5, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(20, 20, 20, 20), 0, 0);
         displayLabel.setOpaque(true);
         displayLabel.setBackground(new Color(210,210,220));
@@ -259,11 +256,11 @@ public class CalculatorUI extends JFrame implements ActionListener {
         panel.add(buttonDiv, buttonDivconstraints);
 
         //Make square root button
-        JButton buttonSquareRT = new JButton("SQRT");
+        JButton buttonSquareRT = new JButton("√");
         var buttonSquareRTconstraints = new GridBagConstraints(3, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonSquareRT.setBorder(BorderFactory.createRaisedBevelBorder());
         buttonSquareRT.setBackground(new Color(160,160,200));
-        buttonSquareRT.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
+        buttonSquareRT.setFont((new Font("Sans-Serif", Font.BOLD, 35)));
         buttonSquareRT.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent M){
                 buttonSquareRT.setBackground(new Color(150,150,190));
@@ -284,7 +281,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
         var buttonSquareconstraints = new GridBagConstraints(4, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonSquare.setBorder(BorderFactory.createRaisedBevelBorder());
         buttonSquare.setBackground(new Color(160,160,200));
-        buttonSquare.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
+        buttonSquare.setFont((new Font("Sans-Serif", Font.BOLD, 25)));
         buttonSquare.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent M){
                 buttonSquare.setBackground(new Color(150,150,190));
@@ -305,7 +302,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
         JButton buttonEqual = new JButton("=");
         var buttonEqualconstraints = new GridBagConstraints(1, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonEqual.setBorder(BorderFactory.createRaisedBevelBorder());
-        buttonEqual.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
+        buttonEqual.setFont((new Font("Sans-Serif", Font.BOLD, 45)));
         buttonEqual.setBackground(new Color(90,250,90));
         buttonEqual.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent M){
@@ -324,10 +321,10 @@ public class CalculatorUI extends JFrame implements ActionListener {
         panel.add(buttonEqual, buttonEqualconstraints);
 
         //Make clear button
-        JButton buttonClear = new JButton("Clear");
-        var buttonClearconstraints = new GridBagConstraints(2, 3,1 , 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
+        JButton buttonClear = new JButton("C");
+        var buttonClearconstraints = new GridBagConstraints(2, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonClear.setBorder(BorderFactory.createRaisedBevelBorder());
-        buttonClear.setFont((new Font("Sans-Serif", Font.BOLD, 20)));
+        buttonClear.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
         buttonClear.setBackground(new Color(255,90,90));
         buttonClear.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent M){
@@ -340,29 +337,37 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonClear.addActionListener(e -> {
-            displayLabel.setText("");
+            displayLabel.setText(" ");
             operatorPressed = false;
         });
         panel.add(buttonClear, buttonClearconstraints);
 
         //Make Toggle button
-        JButton buttonToggle = new JButton("Toggle Base");
+        JButton buttonToggle = new JButton("Toggle Base: " + 4);
         var buttonToggleconstraints = new GridBagConstraints(1, 5, 4, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonToggle.setBorder(BorderFactory.createRaisedBevelBorder());
-        buttonToggle.setBackground(new Color(255,255,0));
-        buttonToggle.setFont((new Font("Sans-Serif", Font.BOLD, 40)));
+        buttonToggle.setBackground(new Color(245,245,110));
+        buttonToggle.setFont((new Font("Sans-Serif", Font.BOLD, 30)));
         buttonToggle.addMouseListener(new MouseAdapter(){
             public void mouseEntered(MouseEvent M){
-                buttonToggle.setBackground(new Color(150,150,190));
+                buttonToggle.setBackground(new Color(230,230,100));
             }
         });
         buttonToggle.addMouseListener(new MouseAdapter(){
             public void mouseExited(MouseEvent M){
-                buttonToggle.setBackground(new Color(255,255,0));
+                buttonToggle.setBackground(new Color(245,245,110));
             }
         });
         buttonToggle.addActionListener(e -> {
-            displayLabel.setText(Calculator.toggle(displayLabel.getText()));
+            if (sqrtPressed == true){
+                buttonToggle.setText("Toggle Base: 4");
+                sqrtPressed = false;
+            }
+            else{
+                buttonToggle.setText("Toggle Base: 10");
+                sqrtPressed = true;
+            };
+            
         });
         panel.add(buttonToggle, buttonToggleconstraints);
 
