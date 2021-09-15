@@ -259,7 +259,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
         panel.add(buttonDiv, buttonDivconstraints);
 
         //Make square root button
-        JButton buttonSquareRT = new JButton("^SQRT");
+        JButton buttonSquareRT = new JButton("SQRT");
         var buttonSquareRTconstraints = new GridBagConstraints(3, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonSquareRT.setBorder(BorderFactory.createRaisedBevelBorder());
         buttonSquareRT.setBackground(new Color(160,160,200));
@@ -275,10 +275,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonSquareRT.addActionListener(e -> {
-            if (operatorPressed == false){
-                displayLabel.setText(displayLabel.getText()+"^SQRT");
-                operatorPressed = true;
-            }
+            displayLabel.setText(Calculator.root(displayLabel.getText()));
         });
         panel.add(buttonSquareRT, buttonSquareRTconstraints);
 
@@ -299,10 +296,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonSquare.addActionListener(e -> {
-            if (operatorPressed == false){
-                displayLabel.setText(displayLabel.getText()+"^2");
-                operatorPressed = true;
-            }
+            displayLabel.setText(Calculator.square(displayLabel.getText()));
         });
         panel.add(buttonSquare, buttonSquareconstraints);
 
@@ -368,10 +362,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonToggle.addActionListener(e -> {
-            if (operatorPressed == false){
-                displayLabel.setText(displayLabel.getText()+"Toggle Base");
-                operatorPressed = true;
-            }
+            displayLabel.setText(Calculator.toggle(displayLabel.getText()));
         });
         panel.add(buttonToggle, buttonToggleconstraints);
 

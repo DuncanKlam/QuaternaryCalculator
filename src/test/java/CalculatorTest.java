@@ -140,15 +140,9 @@ public class CalculatorTest {
     }
 
     @Test
-    void testParseSQRT(){
-        String expected = "^SQRT";
-        Assertions.assertEquals(expected, Calculator.parseCalculation("123123^SQRT"));
-    }
-
-    @Test
-    void testParseSquare(){
-        String expected = "^2";
-        Assertions.assertEquals(expected, Calculator.parseCalculation("123123^22323"));
+    void testParseNoCalculation(){
+        String expected = "";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("10"));
     }
 
     @Test
@@ -159,14 +153,20 @@ public class CalculatorTest {
     @Test
     void testCalculateSquare(){
         String expected = "10";
-        Assertions.assertEquals(expected, Calculator.calculate("2^2"));
+        Assertions.assertEquals(expected, Calculator.square("2"));
     }
 
-    /**@Test
+    @Test
     void testCalculateSquareRT(){
-        String expected = "2";
-        Assertions.assertEquals(expected, Calculator.calculate("10^SQRT"));
-    }**/
+        String expected = "100";
+        Assertions.assertEquals(expected, Calculator.square("10"));
+    }
+
+    @Test
+    void testCalculateNoCalculation(){
+        String expected = "10";
+        Assertions.assertEquals(expected, Calculator.calculate("10"));
+    }
 
     @Test
     void testCalculateEmptyCalculationValueRight(){
