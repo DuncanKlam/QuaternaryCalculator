@@ -110,4 +110,31 @@ public class CalculatorTest {
         String expected = "33333320000001";
         Assertions.assertEquals(expected, Calculator.square(LARGEST_INPUT));
     }
+
+    @Test
+    void testParsePlus(){
+        String expected = "+";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("123123+42112"));
+    }
+    @Test
+    void testParseMinus(){
+        String expected = "-";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("123123-42112"));
+    }
+    @Test
+    void testParseMult(){
+        String expected = "x";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("123123x42112"));
+    }
+    @Test
+    void testParseDiv(){
+        String expected = "/";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("123123/42112"));
+    }
+
+    @Test
+    void testCalculatePlus(){
+        String expected = "2";
+        Assertions.assertEquals(expected, Calculator.calculate("1+1"));
+    }
 }

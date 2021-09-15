@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 public class CalculatorUI extends JFrame implements ActionListener {
 
     JLabel displayLabel;
+    Boolean operatorPressed = false;
+
     public CalculatorUI() {
         //Sets JFrame Title
         super("Calculator");
@@ -28,7 +30,6 @@ public class CalculatorUI extends JFrame implements ActionListener {
         //Make display window for calculator
         displayLabel = new JLabel("");
         var displayLabelConstraints = new GridBagConstraints(1, 0, 4, 1, 1, .5, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(20, 20, 20, 20), 0, 0);
-        displayLabel.setText(" ");
         displayLabel.setOpaque(true);
         displayLabel.setBackground(new Color(210,210,220));
         displayLabel.setBorder(BorderFactory.createLoweredBevelBorder());
@@ -177,7 +178,10 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonAdd.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"+");
+            if (operatorPressed == false){
+                displayLabel.setText(displayLabel.getText()+"+");
+                operatorPressed = true;
+            }
         });
         panel.add(buttonAdd, buttonAddconstraints);
 
@@ -198,7 +202,10 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonSub.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"-");
+            if (operatorPressed == false){
+                displayLabel.setText(displayLabel.getText()+"-");
+                operatorPressed = true;
+            }
         });
         panel.add(buttonSub, buttonSubconstraints);
 
@@ -219,7 +226,10 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonMult.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"x");
+            if (operatorPressed == false){
+                displayLabel.setText(displayLabel.getText()+"x");
+                operatorPressed = true;
+            }
         });
         panel.add(buttonMult, buttonMultconstraints);
 
@@ -240,7 +250,10 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonDiv.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"/");
+            if (operatorPressed == false){
+                displayLabel.setText(displayLabel.getText()+"/");
+                operatorPressed = true;
+            }
         });
         panel.add(buttonDiv, buttonDivconstraints);
 
@@ -261,7 +274,8 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonEqual.addActionListener(e -> {
-            displayLabel.setText(displayLabel.getText()+"=");
+            displayLabel.setText(Calculator.calculate(displayLabel.getText()));
+            operatorPressed = false;
         });
         panel.add(buttonEqual, buttonEqualconstraints);
 
@@ -282,10 +296,10 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonClear.addActionListener(e -> {
-            displayLabel.setText(" ");
+            displayLabel.setText("");
+            operatorPressed = false;
         });
         panel.add(buttonClear, buttonClearconstraints);
-        //Voila now you can type binary numbers
 
         //Closing thoughts, final window creation
         setPreferredSize(new Dimension(400, 600));

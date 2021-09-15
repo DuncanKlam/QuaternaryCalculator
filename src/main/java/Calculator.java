@@ -1,5 +1,22 @@
 public class Calculator {
 
+    public static String parseCalculation(String calculation){
+        String[] operators = {"+","-","x","/"};
+        String operator = "";
+        for (String op : operators){
+            if (calculation.contains(op)){
+                operator = op;
+            }
+        }
+        return operator;
+    }
+
+    public static String calculate(String calculation){
+        String operator = parseCalculation(calculation);
+        String[] parts = calculation.split("["+operator+"]");
+        return compute(parts[0],parts[1],operator);
+    }
+
     public static String compute(String a, String b, String operator) {
 
         return switch (operator) {
