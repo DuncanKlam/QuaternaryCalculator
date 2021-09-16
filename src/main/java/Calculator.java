@@ -91,6 +91,9 @@ public class Calculator {
         } else {
             isBaseFour=true;
         }
+        if(quaternary == ""){
+            return "";
+        }
         if (operator != ""){
             String[] parts = quaternary.split("[" + operator + "]");
             try { if (parts[0] == ""){parts[0] = "0";}
