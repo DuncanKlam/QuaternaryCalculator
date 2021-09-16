@@ -258,7 +258,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
         panel.add(buttonDiv, buttonDivconstraints);
 
         //Make square root button
-        JButton buttonSquareRT = new JButton("√");
+        JButton buttonSquareRT = new JButton("sqrt");
         var buttonSquareRTconstraints = new GridBagConstraints(3, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(1, 1, 1, 1), 0, 0);
         buttonSquareRT.setBorder(BorderFactory.createRaisedBevelBorder());
         buttonSquareRT.setBackground(new Color(160,160,200));
@@ -365,6 +365,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonToggle.addActionListener(e -> {
+            displayLabel.setText(Calculator.toggle(displayLabel.getText()));
             if (sqrtPressed == true){
                 buttonToggle.setText("Toggle Base: 4");
                 sqrtPressed = false;
@@ -372,8 +373,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
             else{
                 buttonToggle.setText("Toggle Base: 10");
                 sqrtPressed = true;
-            };
-            
+            }
         });
         panel.add(buttonToggle, buttonToggleconstraints);
 
