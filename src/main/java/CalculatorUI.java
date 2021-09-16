@@ -274,7 +274,9 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonSquareRT.addActionListener(e -> {
-            displayLabel.setText(Calculator.root(displayLabel.getText()));
+            if (!isBaseTen){
+                displayLabel.setText(Calculator.root(displayLabel.getText()));
+            }
         });
         panel.add(buttonSquareRT, buttonSquareRTconstraints);
 
@@ -295,7 +297,9 @@ public class CalculatorUI extends JFrame implements ActionListener {
             }
         });
         buttonSquare.addActionListener(e -> {
-            displayLabel.setText(Calculator.square(displayLabel.getText()));
+            if(!isBaseTen){
+                displayLabel.setText(Calculator.square(displayLabel.getText()));
+            }
         });
         panel.add(buttonSquare, buttonSquareconstraints);
 
