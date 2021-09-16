@@ -5,6 +5,26 @@ public class CalculatorTest {
     private final String LARGEST_INPUT = "3333333";
 
     @Test
+    public void testComputeAdd() {
+        Assertions.assertEquals("2", Calculator.compute("1", "1", "+"));
+    }
+
+    @Test
+    public void testComputeSub() {
+        Assertions.assertEquals("2", Calculator.compute("10", "2", "-"));
+    }
+
+    @Test
+    public void testComputeMul() {
+        Assertions.assertEquals("20", Calculator.compute("10", "2", "x"));
+    }
+
+    @Test
+    public void testComputeDiv() {
+        Assertions.assertEquals("2", Calculator.compute("10", "2", "/"));
+    }
+
+    @Test
     public void testAddZeros() {
         String expected = "0";
         Assertions.assertEquals(expected, Calculator.add("0","0"));
@@ -33,6 +53,8 @@ public class CalculatorTest {
 
     @Test
     void sub() {
+        String expected = "0";
+        Assertions.assertEquals(expected,Calculator.sub("10","10"));
     }
 
     @Test
@@ -62,11 +84,16 @@ public class CalculatorTest {
 
     @Test
     void div() {
+        String expected = "2";
+        Assertions.assertEquals(expected,Calculator.div("20","10"));
     }
 
     @Test
     void root() {
+        String expected = "2";
+        Assertions.assertEquals(expected, Calculator.root("10"));
     }
+
 
     @Test
     void testSquareZero() {
@@ -89,5 +116,67 @@ public class CalculatorTest {
     void testSquareLargestInput() {
         String expected = "33333320000001";
         Assertions.assertEquals(expected, Calculator.square(LARGEST_INPUT));
+    }
+
+    @Test
+    void testParsePlus(){
+        String expected = "+";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("123123+42112"));
+    }
+    @Test
+    void testParseMinus(){
+        String expected = "-";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("123123-42112"));
+    }
+    @Test
+    void testParseMult(){
+        String expected = "x";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("123123x42112"));
+    }
+    @Test
+    void testParseDiv(){
+        String expected = "/";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("123123/42112"));
+    }
+
+    @Test
+    void testParseNoCalculation(){
+        String expected = "";
+        Assertions.assertEquals(expected, Calculator.parseCalculation("10"));
+    }
+
+    @Test
+    void testCalculatePlus(){
+        String expected = "2";
+        Assertions.assertEquals(expected, Calculator.calculate("1+1"));
+    }
+    @Test
+    void testCalculateSquare(){
+        String expected = "10";
+        Assertions.assertEquals(expected, Calculator.square("2"));
+    }
+
+    @Test
+    void testCalculateSquareRT(){
+        String expected = "100";
+        Assertions.assertEquals(expected, Calculator.square("10"));
+    }
+
+    @Test
+    void testCalculateNoCalculation(){
+        String expected = "10";
+        Assertions.assertEquals(expected, Calculator.calculate("10"));
+    }
+
+    @Test
+    void testCalculateEmptyCalculationValueRight(){
+        String expected = "2";
+        Assertions.assertEquals(expected, Calculator.calculate("2+"));
+    }
+
+    @Test
+    void testCalculateEmptyCalculationValueLeft(){
+        String expected = "2";
+        Assertions.assertEquals(expected, Calculator.calculate("+2"));
     }
 }
