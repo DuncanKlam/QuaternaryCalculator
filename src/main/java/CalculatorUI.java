@@ -10,7 +10,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
 
     JLabel displayLabel;
     Boolean operatorPressed = false;
-    Boolean sqrtPressed = false;
+    Boolean isBaseTen = false;
 
     public CalculatorUI() {
         //Sets JFrame Title
@@ -319,7 +319,9 @@ public class CalculatorUI extends JFrame implements ActionListener {
 
         buttonEqual.addActionListener(e -> {
             displayLabel.setText(Calculator.calculate(displayLabel.getText()));
-            operatorPressed = false;
+            if(!isBaseTen){
+                operatorPressed = false;
+            }
         });
 
         panel.add(buttonEqual, buttonEqualconstraints);
@@ -366,13 +368,13 @@ public class CalculatorUI extends JFrame implements ActionListener {
         });
         buttonToggle.addActionListener(e -> {
             displayLabel.setText(Calculator.toggle(displayLabel.getText()));
-            if (sqrtPressed == true){
+            if (isBaseTen == true){
                 buttonToggle.setText("Toggle Base: 4");
-                sqrtPressed = false;
+                isBaseTen = false;
             }
             else{
                 buttonToggle.setText("Toggle Base: 10");
-                sqrtPressed = true;
+                isBaseTen = true;
             }
         });
         panel.add(buttonToggle, buttonToggleconstraints);
