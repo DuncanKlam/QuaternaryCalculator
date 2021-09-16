@@ -62,13 +62,21 @@ public class Calculator {
     }
 
     public static String root(String quaternary) {
-        int decimal = Integer.parseInt(quaternary, 4);
-        return Integer.toString((int) Math.sqrt(decimal), 4);
+        String result = quaternary;
+        if(parseCalculation(quaternary)==""){
+            int decimal = Integer.parseInt(quaternary, 4);
+            result = Integer.toString((int) Math.sqrt(decimal), 4);
+        }
+        return result;
     }
 
     public static String square(String quaternary) {
-        int decimal = Integer.parseInt(quaternary, 4);
-        return Integer.toString((int) Math.pow(decimal, 2), 4);
+        String result = quaternary;
+        if (parseCalculation(quaternary)==""){
+            int decimal = Integer.parseInt(quaternary, 4);
+            result = Integer.toString((int) Math.pow(decimal, 2), 4);
+        }
+        return result;
     }
 
     public static String toggle(String quaternary){
