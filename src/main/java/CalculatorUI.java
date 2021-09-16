@@ -26,7 +26,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
         setContentPane(panel);
 
         //Make display window for calculator
-        displayLabel = new JLabel(" ");
+        displayLabel = new JLabel("");
         var displayLabelConstraints = new GridBagConstraints(1, 0, 4, 1, 1, .5, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(20, 20, 20, 20), 0, 0);
         displayLabel.setOpaque(true);
         displayLabel.setBackground(new Color(210,210,220));
@@ -342,7 +342,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
         });
 
         buttonClear.addActionListener(e -> {
-            displayLabel.setText(" ");
+            displayLabel.setText("");
             operatorPressed = false;
         });
 
